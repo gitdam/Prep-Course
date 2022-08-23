@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { esVerdadero } = require("../../03-JS-II/homework/homework");
+
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código:
@@ -27,7 +29,7 @@ function incrementarPorUno(array) {
   // y devuelve el array
   // Tu código:
   var nuevoArray = [];
-  for ( var i = 0 ; i < array.legth; i++){
+  for ( var i = 0 ; i < array.length; i++){
     nuevoArray[i] = array[i] + 1;
   }
   return nuevoArray;
@@ -62,7 +64,7 @@ function dePalabrasAFrase(palabras) {
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
 
-  return palabras.join(" ");
+  return palabras.join(' ');
 }
 
 
@@ -71,17 +73,16 @@ function arrayContiene(array, elemento) {
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
 
-  for (let i = 0; i < array.length; i++) {
+  for (var i = 0; i < array.length; i++) {
     
     if (elemento === array[i]){
       return true;
-      }
-
+      }  
     }
-    return false;
+  
+  return false;
   }
-
-
+  
 
 function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
@@ -89,7 +90,7 @@ function agregarNumeros(numeros) {
   // Tu código:
   var suma = 0;
   for(var i = 0; i < numeros.length; i++) {
-    suma += numeros[i];
+    suma = suma + numeros[i];
   }
   return suma;
 }
@@ -99,12 +100,8 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  var promedio = 0
-  resultadosTest = [];
-  for (let i = 0; i < resultadosTest.length; i++) {
-    promedio = promedio + resultadosTest[i];
-  }
-  return promedio/resultadosTest.legth;
+ 
+  return  agregarNumeros(resultadosTest) / resultadosTest.length;
 }
 
 
@@ -113,19 +110,19 @@ function numeroMasGrande(numeros) {
   // Devuelve el número más grande
   // Tu código:
   var maximo = numeros[0];
-  for (let i = 0; i < numeros.length; i++) {
+  for (var i = 1; i < numeros.length; i++) {
     
     if(numeros[i] > maximo){
-      maximo === numeros[i];
+      maximo = numeros[i];
     }
-    return maximo;
   }
+  return maximo;
 }
 
 
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
-  // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
+  // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
   if(arguments.length < 1) return 0;
   var total = 1;
@@ -139,13 +136,14 @@ function multiplicarArgumentos() {
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-  var contador = 0;
+  let contador = 0;
   for (let i = 0; i < arreglo.length; i++) {
     if(arreglo[i] > 19){
       contador++;
     }
-    return contador;
   }
+  return contador;
+
 }
 
 
@@ -157,14 +155,10 @@ function diaDeLaSemana(numeroDeDia) {
   
     if (numeroDeDia === 1  || numeroDeDia === 7) {
       return 'Es fin de semana';
-    } else if (numeroDeDia > 1  && numeroDeDia < 7) {
-     return  "Es dia laboral";
+    } 
+     return  "Es dia Laboral";
     }
     
-  }
-
-
-
 function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
@@ -172,9 +166,9 @@ function empiezaConNueve(n) {
   let num = n.toString();
   if(num.charAt(0) === "9"){
     return true;
-  }else{
-  return false;
   }
+  return false;
+
 }
 
 
@@ -183,9 +177,8 @@ function todosIguales(arreglo) {
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
 
-  for (let i = 0; i < arreglo.length; i++) {
-    if (arreglo[i] 
-      !== arreglo[i+1]){
+  for (var i = 0; i < arreglo.length -1; i++) {
+    if (arreglo[i] !== arreglo[i+1]){
         return false;
       }
   }
@@ -223,10 +216,9 @@ function mayorACien(array) {
     if (array[i] > 100 ) {
       nuevoArray.push(array[i]);
     } 
-      return nuevoArray;
   }
+  return nuevoArray;
 }
-
 
 function breakStatement(numero) {
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
